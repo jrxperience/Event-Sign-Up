@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AZ Cleaning Supplies – Sealathane Event Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.5;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 12px;
+    }
+    header h1 {
+      margin: 4px 0;
+      font-size: 1.8rem;
+    }
+    header h2 {
+      margin: 4px 0;
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+    header p {
+      margin: 2px 0;
+      font-size: 0.95rem;
+    }
+    form {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    h3 {
+      margin-top: 0;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 0.95rem;
+    }
+    button {
+      margin-top: 16px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-submit {
+      background: #007bff;
+      color: #fff;
+    }
+    .message {
+      margin-top: 16px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #555;
+      border-top: 1px solid #eee;
+      padding-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AZ Cleaning Supplies</h1>
+    <h2>Inseco – Sealathane Sealer &amp; Stripper Event Registration</h2>
+    <p>2435 S 11th Ave, Phoenix, AZ 85007</p>
+    <p>Main: (623) 680-3155</p>
+  </header>
+
+  <section>
+    <p>
+      Join AZ Cleaning Supplies and Inseco for a focused session on
+      <strong>Sealathane sealer and stripper</strong>—how to apply it correctly,
+      where it shines, and how it can help your team get better results with less hassle.
+    </p>
+    <p>
+      Please complete the form below to reserve your spot. You will receive a follow-up
+      confirmation from our team after you register.
+    </p>
+  </section>
+
+  <form id="signup-form">
+    <h3>Your Information</h3>
+
+    <label for="firstName">First Name *</label>
+    <input type="text" id="firstName" name="firstName" required />
+
+    <label for="lastName">Last Name *</label>
+    <input type="text" id="lastName" name="lastName" required />
+
+    <label for="companyName">Company Name *</label>
+    <input type="text" id="companyName" name="companyName" required />
+
+    <label for="phoneNumber">Phone Number *</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" required />
+
+    <label for="heardAbout">Where did you hear about the event? *</label>
+    <input type="text" id="heardAbout" name="heardAbout" required
+           placeholder="e.g. AZ Cleaning Supplies, social media, email, referral, etc." />
+
+    <button type="submit" class="btn-submit">Submit Registration</button>
+    <div id="message" class="message"></div>
+  </form>
+
+  <footer>
+    AZ Cleaning Supplies · 2435 S 11th Ave, Phoenix, AZ 85007 · (623) 680-3155
+  </footer>
+
+  <script>
+    // Paste your Google Apps Script Web App URL between the quotes:
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxfq2c-3FlAdB6Po7OxLtPB-ed2qZQ5CIQF5GHFVmba-QgQWN__A2Yq7DiY2Tk_WNLA/exec';
+
+    const form = document.getElementById('signup-form');
+    const messageDiv = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      messageDiv.textContent = 'Submitting...';
+      messageDiv.className = 'message';
+
+      const formData = {
+        firstName:   form.firstName.value.trim(),
+        lastName:    form.lastName.value.trim(),
+        companyName: form.companyName.value.trim(),
+        phoneNumber: form.phoneNumber.value.trim(),
+        heardAbout:  form.heardAbout.value.trim()
+      };
+
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors', // required for many Apps Script deployments
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        // With no-cors we can't read the response, so assume success if no error thrown.
+        messageDiv.textContent = 'Thank you! Your registration has been received.';
+        messageDiv.className = 'message success';
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        messageDiv.textContent = 'Something went wrong. Please try again later.';
+        messageDiv.className = 'message error';
+      }
+    });
+  </script>
+</body>
+</html>
