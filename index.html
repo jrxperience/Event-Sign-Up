@@ -5,139 +5,402 @@
   <title>AZ Cleaning Supplies – Sealathane Event Signup</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      --az-blue: #003f7f;
+      --az-gold: #ffcc33;
+      --az-red: #d62828;
+      --bg-light: #f3f4f6;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 0 16px;
-      line-height: 1.5;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at top left, #e5f0ff, #f3f4f6 40%, #ffffff 80%);
+      color: var(--text-main);
     }
-    header {
-      text-align: center;
-      margin-bottom: 24px;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 12px;
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
     }
-    header h1 {
-      margin: 4px 0;
-      font-size: 1.8rem;
+
+    /* HEADER */
+
+    .site-header {
+      background: linear-gradient(135deg, var(--az-blue), #001f3f);
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.35);
     }
-    header h2 {
-      margin: 4px 0;
-      font-size: 1.2rem;
-      font-weight: normal;
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    header p {
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-wrap img {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+
+    .company-text h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .company-text p {
       margin: 2px 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .header-badge {
+      margin-left: auto;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+    .header-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .event-title {
+      max-width: 620px;
+    }
+
+    .event-title h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .event-title p {
+      margin: 6px 0 0;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    .event-meta {
+      text-align: right;
+      font-size: 0.85rem;
+      opacity: 0.95;
+    }
+
+    .event-meta strong {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    /* LAYOUT */
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .event-meta {
+        text-align: left;
+      }
+
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-badge {
+        margin-left: 0;
+      }
+    }
+
+    /* EVENT INFO CARD */
+
+    .info-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px;
       font-size: 0.95rem;
     }
-    form {
-      border: 1px solid #ddd;
-      padding: 20px;
-      border-radius: 8px;
-      background: #fafafa;
+
+    .info-list li {
+      margin-bottom: 6px;
+      color: var(--text-muted);
     }
-    h3 {
+
+    .info-highlight {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px dashed rgba(15, 23, 42, 0.1);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .info-tagline {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* FORM CARD */
+
+    .form-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px 18px 18px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .form-card h3 {
       margin-top: 0;
+      margin-bottom: 4px;
+      font-size: 1.1rem;
     }
+
+    .form-subtext {
+      margin: 0 0 12px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
     label {
       display: block;
       margin-top: 12px;
-      font-weight: bold;
-      font-size: 0.95rem;
+      font-weight: 600;
+      font-size: 0.9rem;
     }
+
+    .required {
+      color: var(--az-red);
+      margin-left: 2px;
+    }
+
     input {
       width: 100%;
-      padding: 8px;
+      padding: 8px 9px;
       margin-top: 4px;
-      box-sizing: border-box;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
       font-size: 0.95rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
+
+    input:focus {
+      outline: none;
+      border-color: var(--az-blue);
+      box-shadow: 0 0 0 2px rgba(0, 63, 127, 0.16);
+    }
+
     button {
       margin-top: 16px;
-      padding: 10px 16px;
+      padding: 10px 18px;
       border: none;
-      border-radius: 4px;
+      border-radius: 999px;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
+
     .btn-submit {
-      background: #007bff;
-      color: #fff;
+      background: linear-gradient(135deg, var(--az-gold), #ffb300);
+      color: #111827;
+      box-shadow: 0 8px 22px rgba(148, 113, 16, 0.4);
     }
+
+    .btn-submit:active {
+      transform: translateY(1px);
+      box-shadow: 0 4px 14px rgba(148, 113, 16, 0.3);
+    }
+
     .message {
-      margin-top: 16px;
-      font-weight: bold;
-      font-size: 0.95rem;
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
     }
+
     .success {
-      color: green;
+      color: #15803d;
     }
+
     .error {
-      color: red;
+      color: #b91c1c;
     }
+
+    /* FOOTER */
+
     footer {
-      margin-top: 32px;
+      margin-top: 24px;
       text-align: center;
-      font-size: 0.85rem;
-      color: #555;
-      border-top: 1px solid #eee;
-      padding-top: 12px;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    footer span {
+      display: inline-block;
+      margin: 0 4px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>AZ Cleaning Supplies</h1>
-    <h2>Inseco – Sealathane Sealer &amp; Stripper Event Registration</h2>
-    <p>2435 S 11th Ave, Phoenix, AZ 85007</p>
-    <p>Main: (623) 680-3155</p>
-  </header>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-top">
+        <div class="logo-wrap">
+          <!-- Update src if your logo file name is different -->
+          <img src="azcs-logo.png" alt="AZ Cleaning Supplies logo" />
+          <div class="company-text">
+            <h1>AZ CLEANING SUPPLIES</h1>
+            <p>2435 S 11th Ave · Phoenix, AZ 85007</p>
+            <p>Main: (623) 680-3155</p>
+          </div>
+        </div>
+        <div class="header-badge">
+          In-person product training
+        </div>
+      </div>
 
-  <section>
-    <p>
-      Join AZ Cleaning Supplies and Inseco for a focused session on
-      <strong>Sealathane sealer and stripper</strong>—how to apply it correctly,
-      where it shines, and how it can help your team get better results with less hassle.
-    </p>
-    <p>
-      Please complete the form below to reserve your spot. You will receive a follow-up
-      confirmation from our team after you register.
-    </p>
-  </section>
+      <div class="header-bottom">
+        <div class="event-title">
+          <h2>Inseco Sealathane Sealer &amp; Stripper Training Event</h2>
+          <p>
+            Live demo and best practices for using <strong>Sealathane sealer and stripper</strong>:
+            surface prep, application, removal, and real-world tips for your team.
+          </p>
+        </div>
+        <div class="event-meta">
+          <strong>Reserve your spot</strong>
+          <span>Limited seats · Contractors &amp; facility teams welcome</span>
+        </div>
+      </div>
+    </header>
 
-  <form id="signup-form">
-    <h3>Your Information</h3>
+    <main class="layout">
+      <section class="info-card">
+        <h3>What to Expect</h3>
+        <ul class="info-list">
+          <li>Live demonstration of Inseco Sealathane sealer and stripper.</li>
+          <li>Hands-on tips for floors, safety, and correct dilution.</li>
+          <li>Q&amp;A with AZ Cleaning Supplies and Inseco reps.</li>
+        </ul>
 
-    <label for="firstName">First Name *</label>
-    <input type="text" id="firstName" name="firstName" required />
+        <div class="info-highlight">
+          Want us to tailor the training to your sites? Use the
+          “Where did you hear about the event?” field to tell us what kind of facilities
+          you manage (gas stations, schools, retail, etc.).
+        </div>
 
-    <label for="lastName">Last Name *</label>
-    <input type="text" id="lastName" name="lastName" required />
+        <p class="info-tagline">
+          After you submit the form, our team will follow up with confirmation and final details.
+        </p>
+      </section>
 
-    <label for="companyName">Company Name *</label>
-    <input type="text" id="companyName" name="companyName" required />
+      <section class="form-card">
+        <h3>Register for the Event</h3>
+        <p class="form-subtext">
+          Fill out the form and we’ll save your seat. All fields are required.
+        </p>
 
-    <label for="phoneNumber">Phone Number *</label>
-    <input type="tel" id="phoneNumber" name="phoneNumber" required />
+        <form id="signup-form">
+          <label for="firstName">First Name<span class="required">*</span></label>
+          <input type="text" id="firstName" name="firstName" required />
 
-    <label for="heardAbout">Where did you hear about the event? *</label>
-    <input type="text" id="heardAbout" name="heardAbout" required
-           placeholder="e.g. AZ Cleaning Supplies, social media, email, referral, etc." />
+          <label for="lastName">Last Name<span class="required">*</span></label>
+          <input type="text" id="lastName" name="lastName" required />
 
-    <button type="submit" class="btn-submit">Submit Registration</button>
-    <div id="message" class="message"></div>
-  </form>
+          <label for="companyName">Company Name<span class="required">*</span></label>
+          <input type="text" id="companyName" name="companyName" required />
 
-  <footer>
-    AZ Cleaning Supplies · 2435 S 11th Ave, Phoenix, AZ 85007 · (623) 680-3155
-  </footer>
+          <label for="email">Email<span class="required">*</span></label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="phoneNumber">Phone Number<span class="required">*</span></label>
+          <input type="tel" id="phoneNumber" name="phoneNumber" required />
+
+          <label for="heardAbout">Where did you hear about the event?<span class="required">*</span></label>
+          <input
+            type="text"
+            id="heardAbout"
+            name="heardAbout"
+            required
+            placeholder="e.g. AZ Cleaning Supplies rep, social media, email, referral, etc."
+          />
+
+          <button type="submit" class="btn-submit">
+            Submit Registration
+          </button>
+          <div id="message" class="message"></div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <span>AZ Cleaning Supplies</span> ·
+      <span>2435 S 11th Ave, Phoenix, AZ 85007</span> ·
+      <span>(623) 680-3155</span>
+    </footer>
+  </div>
 
   <script>
     // Paste your Google Apps Script Web App URL between the quotes:
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxfq2c-3FlAdB6Po7OxLtPB-ed2qZQ5CIQF5GHFVmba-QgQWN__A2Yq7DiY2Tk_WNLA/exec';
+    const SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
 
     const form = document.getElementById('signup-form');
     const messageDiv = document.getElementById('message');
@@ -147,27 +410,26 @@
       messageDiv.textContent = 'Submitting...';
       messageDiv.className = 'message';
 
-     const formData = {
-  firstName:   form.firstName.value.trim(),
-  lastName:    form.lastName.value.trim(),
-  companyName: form.companyName.value.trim(),
-  email:       form.email.value.trim(),
-  phoneNumber: form.phoneNumber.value.trim(),
-  heardAbout:  form.heardAbout.value.trim()
-};
-
+      const formData = {
+        firstName:   form.firstName.value.trim(),
+        lastName:    form.lastName.value.trim(),
+        companyName: form.companyName.value.trim(),
+        email:       form.email.value.trim(),
+        phoneNumber: form.phoneNumber.value.trim(),
+        heardAbout:  form.heardAbout.value.trim()
+      };
 
       try {
         const res = await fetch(SCRIPT_URL, {
           method: 'POST',
-          mode: 'no-cors', // required for many Apps Script deployments
+          mode: 'no-cors',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(formData)
         });
 
-        // With no-cors we can't read the response, so assume success if no error thrown.
+        // With no-cors we can't read the response; assume success if no error is thrown
         messageDiv.textContent = 'Thank you! Your registration has been received.';
         messageDiv.className = 'message success';
         form.reset();
