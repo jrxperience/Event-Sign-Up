@@ -147,13 +147,15 @@
       messageDiv.textContent = 'Submitting...';
       messageDiv.className = 'message';
 
-      const formData = {
-        firstName:   form.firstName.value.trim(),
-        lastName:    form.lastName.value.trim(),
-        companyName: form.companyName.value.trim(),
-        phoneNumber: form.phoneNumber.value.trim(),
-        heardAbout:  form.heardAbout.value.trim()
-      };
+     const formData = {
+  firstName:   form.firstName.value.trim(),
+  lastName:    form.lastName.value.trim(),
+  companyName: form.companyName.value.trim(),
+  email:       form.email.value.trim(),
+  phoneNumber: form.phoneNumber.value.trim(),
+  heardAbout:  form.heardAbout.value.trim()
+};
+
 
       try {
         const res = await fetch(SCRIPT_URL, {
