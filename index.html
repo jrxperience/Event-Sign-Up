@@ -32,8 +32,6 @@
       padding: 24px 16px 40px;
     }
 
-    /* HEADER */
-
     .site-header {
       background: linear-gradient(135deg, var(--az-blue), #001f3f);
       color: #ffffff;
@@ -143,8 +141,6 @@
       }
     }
 
-    /* LAYOUT */
-
     .layout {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -157,8 +153,6 @@
         grid-template-columns: 1fr;
       }
     }
-
-    /* EVENT INFO CARD */
 
     .info-card {
       background: var(--card-bg);
@@ -228,8 +222,6 @@
     .products-block strong {
       color: var(--text-main);
     }
-
-    /* FORM CARD */
 
     .form-card {
       background: #ffffff;
@@ -317,8 +309,6 @@
       color: #b91c1c;
     }
 
-    /* FOOTER */
-
     footer {
       margin-top: 24px;
       text-align: center;
@@ -337,7 +327,6 @@
     <header class="site-header">
       <div class="header-top">
         <div class="logo-wrap">
-          <!-- Update src if your logo file name is different -->
           <img src="azcs-logo.jpg" alt="AZ Cleaning Supplies logo" />
           <div class="company-text">
             <h1>AZ CLEANING SUPPLIES</h1>
@@ -391,19 +380,13 @@
           <h4>Focus Products You’ll See in Action</h4>
           <ul>
             <li>
-              <strong>Sealthane Wet Look 2-Part Urethane Sealer</strong> – a 2 part, aliphatic, water-based,
-              chemical-resistant acrylic urethane that penetrates, enhances color, binds joint sand, and leaves a
-              durable high gloss “wet look” finish on concrete and pavers while resisting UV, water and stains.
+              <strong>Sealthane Wet Look 2-Part Urethane Sealer</strong> – a 2 part, aliphatic, water-based, chemical-resistant acrylic urethane that penetrates, enhances color, binds joint sand, and leaves a durable high gloss “wet look” finish while resisting UV, water and stains.
             </li>
             <li>
-              <strong>PSR Gel Paver Sealer Remover</strong> – a thick, biodegradable, low-odor gel stripper that
-              removes multiple layers of sealer and coatings without methylene chloride, N-methyl-pyrrolidone or
-              caustics. Designed to penetrate and soften built-up films so they can be removed safely and efficiently.
+              <strong>PSR Gel Paver Sealer Remover</strong> – a thick, biodegradable, low-odor gel stripper designed to remove multiple layers of sealer/coatings without harsh solvents.
             </li>
             <li>
-              <strong>PSR Spray Paver Sealer Remover</strong> – the same environmentally friendly PSR chemistry in a
-              sprayable formula for horizontal pavers: spray on, dwell, and rinse to strip existing sealer and bring
-              pavers back to a clean, resealable surface.
+              <strong>PSR Spray Paver Sealer Remover</strong> – the same environmentally friendly PSR chemistry in a sprayable formula for horizontal pavers.
             </li>
           </ul>
         </div>
@@ -456,8 +439,7 @@
   </div>
 
   <script>
-    // Paste your Google Apps Script Web App URL between the quotes:
-    const SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxfq2c-3FlAdB6Po7OxLtPB-ed2qZQ5CIQF5GHFVmba-QgQWN__A2Yq7DiY2Tk_WNLA/exec';
 
     const form = document.getElementById('signup-form');
     const messageDiv = document.getElementById('message');
@@ -477,7 +459,7 @@
       };
 
       try {
-        const res = await fetch(SCRIPT_URL, {
+        await fetch(SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
           headers: {
@@ -486,7 +468,6 @@
           body: JSON.stringify(formData)
         });
 
-        // With no-cors we can't read the response; assume success if no error is thrown
         messageDiv.textContent = 'Thank you! Your registration has been received.';
         messageDiv.className = 'message success';
         form.reset();
