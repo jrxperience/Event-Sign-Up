@@ -26,7 +26,7 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       min-height: 100vh;
-      /* NEW BACKGROUND IMAGE + DARK OVERLAY */
+      /* BACKGROUND IMAGE + DARK OVERLAY */
       background:
         linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
         url('azcs-event-bg.png') center/cover fixed no-repeat;
@@ -147,6 +147,19 @@
       line-height: 1.45;
     }
 
+    .subheadline {
+      margin: 8px 0 4px;
+      font-size: 0.96rem;
+      opacity: 0.96;
+      line-height: 1.45;
+    }
+
+    .who-line {
+      margin: 4px 0 10px;
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
     .audience-pills {
       display: flex;
       flex-wrap: wrap;
@@ -212,6 +225,28 @@
       border: 1px solid rgba(255, 204, 51, 0.7);
       font-size: 0.78rem;
       font-weight: 600;
+    }
+
+    /* partner strip under hero */
+    .partner-strip {
+      margin-top: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(10, 22, 46, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
+
+    .partner-strip .highlight {
+      font-weight: 600;
+      color: var(--az-gold);
     }
 
     @media (max-width: 800px) {
@@ -309,8 +344,8 @@
     }
 
     .offer-block {
-      margin-top: 12px;
-      padding: 10px 12px;
+      margin-top: 16px;
+      padding: 10px 12px 10px;
       border-radius: 12px;
       background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(5, 46, 107, 0.9));
       border: 1px solid rgba(191, 219, 254, 0.6);
@@ -319,8 +354,21 @@
       box-shadow: 0 12px 32px rgba(15, 23, 42, 0.8);
     }
 
-    .offer-block strong {
-      color: #fef3c7;
+    .offer-block h3 {
+      margin: 0 0 6px;
+      font-size: 0.98rem;
+      color: #fefce8;
+    }
+
+    .offer-block ul {
+      list-style: disc;
+      padding-left: 18px;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .offer-block li {
+      margin-bottom: 4px;
     }
 
     .who-for {
@@ -420,330 +468,4 @@
       display: block;
       margin-top: 12px;
       font-weight: 600;
-      font-size: 0.9rem;
-      color: #e5e7eb;
-    }
-
-    .required {
-      color: var(--az-gold);
-      margin-left: 2px;
-    }
-
-    input {
-      width: 100%;
-      padding: 8px 9px;
-      margin-top: 4px;
-      border-radius: 8px;
-      border: 1px solid #9ca3af;
-      font-size: 0.95rem;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
-      background: #f9fafb;
-      color: #111827;
-    }
-
-    input::placeholder {
-      color: #9ca3af;
-    }
-
-    input:focus {
-      outline: none;
-      border-color: var(--az-gold);
-      box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.3);
-      transform: translateY(-1px);
-    }
-
-    button {
-      margin-top: 16px;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.98rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-submit {
-      background: linear-gradient(135deg, var(--az-gold), var(--az-gold-deep));
-      color: #111827;
-      box-shadow: 0 8px 22px rgba(148, 113, 16, 0.55);
-      transition: transform 0.12s ease, box-shadow 0.12s ease;
-    }
-
-    .btn-submit:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(148, 113, 16, 0.7);
-    }
-
-    .btn-submit:active {
-      transform: translateY(0);
-      box-shadow: 0 6px 16px rgba(148, 113, 16, 0.45);
-    }
-
-    .message {
-      margin-top: 10px;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    .success {
-      color: #bbf7d0;
-    }
-
-    .error {
-      color: #fecaca;
-    }
-
-    /* FOOTER */
-
-    footer {
-      margin-top: 24px;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #e5e7eb;
-    }
-
-    footer span {
-      display: inline-block;
-      margin: 0 4px;
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <header class="site-header">
-      <div class="header-top">
-        <div class="logo-wrap">
-          <!-- Make sure azcs-logo.jpg is in the repo root -->
-          <img src="azcs-logo.jpg" alt="AZ Cleaning Supplies logo" />
-          <div class="company-text">
-            <h1>AZ CLEANING SUPPLIES</h1>
-            <p>2435 S 11th Ave · Phoenix, AZ 85007</p>
-            <p>Main: (623) 680-3155</p>
-          </div>
-        </div>
-        <div class="header-badge">
-          Inseco x AZ Cleaning Supplies · Live Demo
-        </div>
-      </div>
-
-      <div class="header-bottom">
-        <div class="event-title">
-          <p class="eyebrow">Paver &amp; Concrete Sealing Training · Phoenix</p>
-          <h2>Stop Fighting Failed Paver Sealers.</h2>
-          <p>
-            Half-day, hands-on training at AZ Cleaning Supplies for
-            <strong>landscapers, hardscapers, power washing pros, and facility teams</strong> who want a proven
-            strip–prep–seal workflow using <strong>Inseco Sealthane Wet Look</strong> and
-            <strong>PSR Paver Sealer Remover (gel &amp; spray)</strong> so jobs look better and last longer with fewer callbacks.
-          </p>
-
-          <div class="audience-pills">
-            <span class="audience-pill">Landscapers</span>
-            <span class="audience-pill">Hardscape contractors</span>
-            <span class="audience-pill">Power washing / exterior cleaning</span>
-            <span class="audience-pill">Facility &amp; property managers</span>
-            <span class="audience-pill">Maintenance supervisors &amp; building engineers</span>
-          </div>
-
-          <button
-            type="button"
-            class="hero-cta"
-            onclick="document.getElementById('signup-form').scrollIntoView({ behavior: 'smooth' });"
-          >
-            Reserve My Seat + Free Kit
-          </button>
-        </div>
-
-        <div class="event-meta">
-          <strong>January 10 · 9:00 AM – 1:00 PM</strong>
-          <span>AZ Cleaning Supplies · Phoenix, AZ</span>
-          <span>Lunch provided</span>
-          <span class="event-offer-pill">Free Sealthane kit for attendees</span>
-        </div>
-      </div>
-    </header>
-
-    <div class="main-shell">
-      <main class="layout">
-        <section class="info-card">
-          <h3>What You’ll Learn</h3>
-          <ul class="info-list">
-            <li>
-              How to use <strong>Sealthane Wet Look</strong>, a 2-part, water-based acrylic urethane, to get a durable,
-              high-gloss wet look that enhances color, binds joint sand, and stands up to water, stains, and UV.
-            </li>
-            <li>
-              How to use <strong>PSR Paver Sealer Remover</strong> (gel &amp; spray) as your “reset button” on failed or
-              unknown sealers – biodegradable, low-odor chemistry that penetrates and softens multiple layers so they can
-              be removed safely and efficiently.
-            </li>
-            <li>
-              A repeatable <strong>strip–prep–seal workflow</strong> you can take back to your crews: dwell times,
-              rinsing, surface moisture, sanding, and cure times so you know not just how to seal, but when it’s safe to seal.
-            </li>
-            <li>
-              Positioning and pricing ideas so sealing becomes a reliable, profitable service for contractors and a
-              predictable maintenance tool for facility teams.
-            </li>
-          </ul>
-
-          <div class="offer-block">
-            <strong>What You Get for Attending:</strong><br />
-            Everyone who signs up and attends the full training receives a <strong>Sealthane Wet Look sealer kit</strong>
-            to take back to the field, plus live demos with Inseco and AZ Cleaning Supplies, dedicated Q&amp;A time, and
-            lunch provided on-site.
-          </div>
-
-          <section class="who-for">
-            <h3>Who This Training Is For</h3>
-            <p>
-              This session is designed for people who actually live with the results of sealing work—not just the brochure.
-            </p>
-            <ul>
-              <li>
-                <strong>Landscapers</strong><br />
-                Who install or maintain pavers and concrete and want to add sealing as a high-margin add-on without
-                creating callbacks when the sealer fails, turns white, or peels.
-              </li>
-              <li>
-                <strong>Hardscape contractors</strong><br />
-                Who need a reliable way to strip off bad or unknown sealers, reset a surface, and then install a
-                high-gloss, joint-stabilizing wet look finish that makes your installs pop and protects your reputation.
-              </li>
-              <li>
-                <strong>Power washing &amp; exterior cleaning companies</strong><br />
-                Who want to turn one-time cleaning jobs into longer-term sealing and resealing work using a proven system.
-              </li>
-              <li>
-                <strong>Facility &amp; property managers</strong><br />
-                Who are responsible for walkways, plazas, pool decks, and entries and care about durability, appearance,
-                and safety – and want chemistry that works in the field, not just on paper.
-              </li>
-              <li>
-                <strong>Maintenance supervisors &amp; building engineers</strong><br />
-                Who need practical, repeatable processes their crews can follow without guesswork.
-              </li>
-            </ul>
-          </section>
-
-          <div class="products-block">
-            <h4>Focus Products You’ll See in Action</h4>
-            <ul>
-              <li>
-                <strong>Sealthane Wet Look 2-Part Urethane Sealer</strong> – a 2-part, aliphatic, water-based, chemical-resistant
-                acrylic urethane that penetrates the surface, enhances color, binds joint sand, and leaves a tough, clear
-                high-gloss wet look film that protects against water, staining, and UV.
-              </li>
-              <li>
-                <strong>PSR Gel Paver Sealer Remover</strong> – a thick, biodegradable, low-odor gel stripper that removes
-                multiple layers of sealer and coatings without methylene chloride, N-methyl-pyrrolidone, or caustics,
-                designed to penetrate and soften built-up films so they can be removed safely.
-              </li>
-              <li>
-                <strong>PSR Spray Paver Sealer Remover</strong> – the same PSR chemistry in a sprayable formula for
-                horizontal pavers: spray on, let it dwell, and rinse to strip existing sealer and bring pavers back to a
-                clean, resealable surface.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="form-card">
-          <h3>Reserve Your Seat</h3>
-          <p class="form-subtext">
-            Seats are limited. Fill out the form to reserve your spot. All fields are required. Landscapers, hardscapers,
-            power washing pros, and facility teams are all welcome.
-          </p>
-
-          <form id="signup-form">
-            <label for="firstName">First Name<span class="required">*</span></label>
-            <input type="text" id="firstName" name="firstName" required />
-
-            <label for="lastName">Last Name<span class="required">*</span></label>
-            <input type="text" id="lastName" name="lastName" required />
-
-            <label for="companyName">Company Name<span class="required">*</span></label>
-            <input type="text" id="companyName" name="companyName" required />
-
-            <label for="email">Email<span class="required">*</span></label>
-            <input type="email" id="email" name="email" required />
-
-            <label for="phoneNumber">Phone Number<span class="required">*</span></label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required />
-
-            <label for="heardAbout">Where did you hear about the event?<span class="required">*</span></label>
-            <input
-              type="text"
-              id="heardAbout"
-              name="heardAbout"
-              required
-              placeholder="AZCS rep, social media, email, referral, trade show, etc."
-            />
-
-            <button type="submit" class="btn-submit">
-              Submit Registration
-            </button>
-            <div id="message" class="message"></div>
-          </form>
-
-          <p class="form-subnote">
-            We’ll only use your information to confirm your seat, send event details, and follow up after the training.
-            No spam and no list sharing.
-          </p>
-        </section>
-      </main>
-    </div>
-
-    <footer>
-      <span>AZ Cleaning Supplies</span> ·
-      <span>2435 S 11th Ave, Phoenix, AZ 85007</span> ·
-      <span>(623) 680-3155</span>
-    </footer>
-  </div>
-
-  <script>
-    // Your live Google Apps Script Web App URL
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxO9eZHvc2WetwHoKUtnWkZn7fmW4CuesANCc0LKQrg0x9Xh8Iv8rk3KSv2qQXdDmxl/exec';
-
-    const form = document.getElementById('signup-form');
-    const messageDiv = document.getElementById('message');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      messageDiv.textContent = 'Submitting...';
-      messageDiv.className = 'message';
-
-      const formData = {
-        firstName:   form.firstName.value.trim(),
-        lastName:    form.lastName.value.trim(),
-        companyName: form.companyName.value.trim(),
-        email:       form.email.value.trim(),
-        phoneNumber: form.phoneNumber.value.trim(),
-        heardAbout:  form.heardAbout.value.trim()
-      };
-
-      try {
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
-
-        messageDiv.textContent = 'Thank you! Your registration has been received.';
-        messageDiv.className = 'message success';
-        form.reset();
-      } catch (err) {
-        console.error(err);
-        messageDiv.textContent = 'Something went wrong. Please try again later.';
-        messageDiv.className = 'message error';
-      }
-    });
-  </script>
-</body>
-</html>
+      font-size: 0.
