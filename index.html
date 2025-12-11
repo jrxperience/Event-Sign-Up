@@ -32,6 +32,8 @@
       padding: 24px 16px 40px;
     }
 
+    /* HEADER */
+
     .site-header {
       background: linear-gradient(135deg, var(--az-blue), #001f3f);
       color: #ffffff;
@@ -126,6 +128,17 @@
       display: block;
     }
 
+    .event-offer-pill {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 204, 51, 0.12);
+      border: 1px solid rgba(255, 204, 51, 0.7);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
     @media (max-width: 800px) {
       .event-meta {
         text-align: left;
@@ -141,6 +154,8 @@
       }
     }
 
+    /* LAYOUT */
+
     .layout {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -153,6 +168,8 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* INFO CARD */
 
     .info-card {
       background: var(--card-bg);
@@ -180,8 +197,8 @@
       color: var(--text-muted);
     }
 
-    .info-highlight {
-      margin-top: 10px;
+    .offer-block {
+      margin-top: 12px;
       padding: 10px 12px;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.9);
@@ -190,10 +207,47 @@
       color: var(--text-muted);
     }
 
+    .offer-block strong {
+      color: var(--text-main);
+    }
+
     .info-tagline {
       margin-top: 10px;
       font-size: 0.9rem;
       color: var(--text-muted);
+    }
+
+    .who-for {
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .who-for h3 {
+      margin: 0 0 6px;
+      font-size: 1.02rem;
+    }
+
+    .who-for p {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .who-for ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .who-for li {
+      margin-bottom: 8px;
+    }
+
+    .who-for strong {
+      color: var(--text-main);
     }
 
     .products-block {
@@ -223,6 +277,8 @@
       color: var(--text-main);
     }
 
+    /* FORM CARD */
+
     .form-card {
       background: #ffffff;
       border-radius: 16px;
@@ -241,6 +297,12 @@
       margin: 0 0 12px;
       font-size: 0.9rem;
       color: var(--text-muted);
+    }
+
+    .form-subnote {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: #6b7280;
     }
 
     label {
@@ -309,6 +371,8 @@
       color: #b91c1c;
     }
 
+    /* FOOTER */
+
     footer {
       margin-top: 24px;
       text-align: center;
@@ -327,6 +391,7 @@
     <header class="site-header">
       <div class="header-top">
         <div class="logo-wrap">
+          <!-- Update src if your logo file name is different -->
           <img src="azcs-logo.jpg" alt="AZ Cleaning Supplies logo" />
           <div class="company-text">
             <h1>AZ CLEANING SUPPLIES</h1>
@@ -335,67 +400,109 @@
           </div>
         </div>
         <div class="header-badge">
-          In-person product training
+          Contractor & Facility Training · Live Demo
         </div>
       </div>
 
       <div class="header-bottom">
         <div class="event-title">
-          <h2>Inseco Sealthane Sealer &amp; PSR Stripper Training</h2>
+          <h2>For Landscapers, Hardscapers & Facility Teams Who Are Done Fighting Failed Sealers</h2>
           <p>
-            Learn how to prep, strip and seal pavers and concrete the right way with
-            <strong>Inseco Sealthane Wet Look</strong> and
-            <strong>Paver Sealer Remover (PSR)</strong> gel &amp; spray.
+            Half-day, hands-on training at AZ Cleaning Supplies showing you exactly how to strip, prep, and seal pavers
+            and concrete with <strong>Inseco Sealthane Wet Look</strong> and
+            <strong>PSR Paver Sealer Remover (gel &amp; spray)</strong> so jobs look better and last longer with fewer callbacks.
           </p>
         </div>
         <div class="event-meta">
           <strong>January 10 · 9:00 AM – 1:00 PM</strong>
           <span>AZ Cleaning Supplies · Phoenix, AZ</span>
-          <span>Lunch provided · Free Sealthane kit for attendees</span>
+          <span>Lunch provided</span>
+          <span class="event-offer-pill">Free Sealthane kit for attendees</span>
         </div>
       </div>
     </header>
 
     <main class="layout">
       <section class="info-card">
-        <h3>What You’ll Get at This Training</h3>
+        <h3>What You’ll Learn</h3>
         <ul class="info-list">
-          <li>Live, on-surface demo of <strong>Sealthane Wet Look</strong> – mixing, application, and how to avoid failures.</li>
-          <li>How to use <strong>PSR gel &amp; spray</strong> to remove failed or old sealers and reset pavers before resealing.</li>
-          <li>Best practices for surface prep, joint sand, curing times, and maintenance plans you can actually sell.</li>
+          <li>
+            How to use <strong>Sealthane Wet Look</strong>, a 2-part, water-based acrylic urethane, to get a durable,
+            high-gloss wet look that enhances color, binds joint sand, and stands up to water, stains, and UV.
+          </li>
+          <li>
+            How to use <strong>PSR Paver Sealer Remover</strong> (gel &amp; spray) as your “reset button” on failed or
+            unknown sealers – biodegradable, low-odor chemistry that penetrates and softens multiple layers so they can
+            be removed safely and efficiently.
+          </li>
+          <li>
+            A repeatable <strong>strip–prep–seal workflow</strong> you can take back to your crews: dwell times,
+            rinsing, surface moisture, sanding, and cure times so you know not just how to seal, but when it’s safe to seal.
+          </li>
+          <li>
+            Positioning and pricing ideas for contractors and facility teams so sealing becomes a reliable, profitable
+            service instead of a headache.
+          </li>
         </ul>
 
-        <div class="info-highlight">
-          <strong>Bonus for attending:</strong> Everyone who signs up and attends the full event will receive a
-          <strong>Sealthane Wet Look sealer kit</strong> for attending – a real kit you can take to the field.
-          Lunch is provided on-site at AZ Cleaning Supplies.
+        <div class="offer-block">
+          <strong>What You Get for Attending:</strong><br />
+          Everyone who signs up and attends the full training receives a
+          <strong>Sealthane Wet Look sealer kit</strong> to take back to the field, plus live demos with Inseco and AZ
+          Cleaning Supplies, dedicated Q&amp;A time, and lunch provided on-site.
         </div>
 
-        <p class="info-tagline">
-          This session is geared toward contractors, facility teams, and anyone responsible for paver or concrete
-          maintenance who wants better results and fewer call-backs.
-        </p>
+        <section class="who-for">
+          <h3>Who This Training Is For</h3>
+          <p>
+            This session is designed for people who actually live with the results of sealing work—not just the brochure.
+          </p>
+          <ul>
+            <li>
+              <strong>Landscapers</strong><br />
+              Who install or maintain pavers and concrete and want to add sealing as a high-margin add-on without
+              creating callbacks when the sealer fails, turns white, or peels.
+            </li>
+            <li>
+              <strong>Hardscape contractors</strong><br />
+              Who need a reliable way to strip off bad or unknown sealers, reset a surface, and then install a
+              high-gloss, joint-stabilizing wet look finish that makes your installs pop and protects your reputation.
+            </li>
+            <li>
+              <strong>Facility and property managers</strong><br />
+              Who are responsible for walkways, plazas, pool decks, and entries and care about durability, appearance,
+              and safety – and want a system that works in the field, not just on paper.
+            </li>
+          </ul>
+        </section>
 
         <div class="products-block">
           <h4>Focus Products You’ll See in Action</h4>
           <ul>
             <li>
-              <strong>Sealthane Wet Look 2-Part Urethane Sealer</strong> – a 2 part, aliphatic, water-based, chemical-resistant acrylic urethane that penetrates, enhances color, binds joint sand, and leaves a durable high gloss “wet look” finish while resisting UV, water and stains.
+              <strong>Sealthane Wet Look 2-Part Urethane Sealer</strong> – a 2-part, aliphatic, water-based, chemical-resistant
+              acrylic urethane that penetrates the surface, enhances color, binds joint sand, and leaves a tough, clear
+              high-gloss wet look film that protects against water, staining, and UV.
             </li>
             <li>
-              <strong>PSR Gel Paver Sealer Remover</strong> – a thick, biodegradable, low-odor gel stripper designed to remove multiple layers of sealer/coatings without harsh solvents.
+              <strong>PSR Gel Paver Sealer Remover</strong> – a thick, biodegradable, low-odor gel stripper that removes
+              multiple layers of sealer and coatings without methylene chloride, N-methyl-pyrrolidone, or caustics.
+              Designed to penetrate and soften built-up films so they can be removed safely and efficiently.
             </li>
             <li>
-              <strong>PSR Spray Paver Sealer Remover</strong> – the same environmentally friendly PSR chemistry in a sprayable formula for horizontal pavers.
+              <strong>PSR Spray Paver Sealer Remover</strong> – the same PSR chemistry in a sprayable formula for
+              horizontal pavers: spray on, let it dwell, and rinse to strip existing sealer and bring pavers back to a
+              clean, resealable surface.
             </li>
           </ul>
         </div>
       </section>
 
       <section class="form-card">
-        <h3>Register for the Event</h3>
+        <h3>Reserve Your Seat</h3>
         <p class="form-subtext">
           Seats are limited. Fill out the form to reserve your spot. All fields are required.
+          Landscapers, hardscapers, and facility teams are all welcome.
         </p>
 
         <form id="signup-form">
@@ -420,14 +527,19 @@
             id="heardAbout"
             name="heardAbout"
             required
-            placeholder="e.g. AZ Cleaning Supplies rep, social media, email, referral, etc."
+            placeholder="AZCS rep, social media, email, referral, trade show, etc."
           />
 
           <button type="submit" class="btn-submit">
-            Submit Registration
+            Reserve My Seat
           </button>
           <div id="message" class="message"></div>
         </form>
+
+        <p class="form-subnote">
+          We’ll only use your information to confirm your seat, send event details, and follow up after the training.
+          No spam and no list sharing.
+        </p>
       </section>
     </main>
 
@@ -439,6 +551,7 @@
   </div>
 
   <script>
+    // Replace with your actual Google Apps Script Web App URL (ending in /exec)
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxO9eZHvc2WetwHoKUtnWkZn7fmW4CuesANCc0LKQrg0x9Xh8Iv8rk3KSv2qQXdDmxl/exec';
 
     const form = document.getElementById('signup-form');
