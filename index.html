@@ -7,12 +7,15 @@
   <style>
     :root {
       --az-blue: #003f7f;
+      --az-blue-dark: #001c3b;
       --az-gold: #ffcc33;
+      --az-gold-deep: #ffb300;
       --az-red: #d62828;
       --bg-light: #f3f4f6;
       --text-main: #111827;
       --text-muted: #4b5563;
       --card-bg: #ffffff;
+      --border-subtle: rgba(15, 23, 42, 0.08);
     }
 
     * {
@@ -32,24 +35,36 @@
       padding: 24px 16px 40px;
     }
 
-    /* HEADER */
+    /* HEADER / HERO */
 
     .site-header {
-      background: linear-gradient(135deg, var(--az-blue), #001f3f);
+      background: radial-gradient(circle at top left, #28527a, var(--az-blue-dark));
       color: #ffffff;
-      border-radius: 18px;
-      padding: 18px 20px;
+      border-radius: 22px;
+      padding: 20px 20px 18px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.35);
+      gap: 14px;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 60%);
+      pointer-events: none;
     }
 
     .header-top {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 16px;
       flex-wrap: wrap;
+      z-index: 1;
     }
 
     .logo-wrap {
@@ -62,12 +77,15 @@
       height: 60px;
       width: auto;
       display: block;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 6px;
     }
 
     .company-text h1 {
       margin: 0;
       font-size: 1.6rem;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
@@ -81,36 +99,89 @@
       margin-left: auto;
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      opacity: 0.9;
+      opacity: 0.95;
       white-space: nowrap;
+      background: rgba(0, 0, 0, 0.16);
     }
 
     .header-bottom {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 18px;
       align-items: center;
       justify-content: space-between;
+      z-index: 1;
     }
 
     .event-title {
-      max-width: 620px;
+      max-width: 640px;
+    }
+
+    .eyebrow {
+      margin: 0 0 4px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
     }
 
     .event-title h2 {
       margin: 0;
-      font-size: 1.4rem;
-      font-weight: 600;
+      font-size: 1.55rem;
+      font-weight: 650;
     }
 
     .event-title p {
-      margin: 6px 0 0;
-      font-size: 0.95rem;
+      margin: 8px 0 10px;
+      font-size: 0.96rem;
       opacity: 0.95;
+      line-height: 1.45;
+    }
+
+    .audience-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .audience-pill {
+      padding: 4px 8px;
+      font-size: 0.78rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(0, 0, 0, 0.12);
+      white-space: nowrap;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      margin-top: 2px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.94rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--az-gold), var(--az-gold-deep));
+      color: #111827;
+      box-shadow: 0 10px 26px rgba(148, 113, 16, 0.55);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(148, 113, 16, 0.7);
+    }
+
+    .hero-cta:active {
+      transform: translateY(0);
+      box-shadow: 0 7px 18px rgba(148, 113, 16, 0.45);
     }
 
     .event-meta {
@@ -152,6 +223,10 @@
       .header-badge {
         margin-left: 0;
       }
+
+      .event-title h2 {
+        font-size: 1.35rem;
+      }
     }
 
     /* LAYOUT */
@@ -159,7 +234,7 @@
     .layout {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 24px;
+      gap: 26px;
       margin-top: 24px;
     }
 
@@ -173,10 +248,10 @@
 
     .info-card {
       background: var(--card-bg);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 18px 18px 18px;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      border: 1px solid rgba(15, 23, 42, 0.05);
+      border: 1px solid var(--border-subtle);
     }
 
     .info-card h3 {
@@ -201,8 +276,8 @@
       margin-top: 12px;
       padding: 10px 12px;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px dashed rgba(15, 23, 42, 0.1);
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px dashed rgba(15, 23, 42, 0.16);
       font-size: 0.9rem;
       color: var(--text-muted);
     }
@@ -220,7 +295,7 @@
     .who-for {
       margin-top: 16px;
       padding-top: 10px;
-      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
     }
 
     .who-for h3 {
@@ -252,7 +327,7 @@
 
     .products-block {
       margin-top: 14px;
-      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
       padding-top: 10px;
     }
 
@@ -281,10 +356,10 @@
 
     .form-card {
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 20px 18px 18px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
-      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+      border: 1px solid var(--border-subtle);
     }
 
     .form-card h3 {
@@ -324,13 +399,14 @@
       border-radius: 8px;
       border: 1px solid #d1d5db;
       font-size: 0.95rem;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
     }
 
     input:focus {
       outline: none;
       border-color: var(--az-blue);
       box-shadow: 0 0 0 2px rgba(0, 63, 127, 0.16);
+      transform: translateY(-1px);
     }
 
     button {
@@ -347,14 +423,20 @@
     }
 
     .btn-submit {
-      background: linear-gradient(135deg, var(--az-gold), #ffb300);
+      background: linear-gradient(135deg, var(--az-gold), var(--az-gold-deep));
       color: #111827;
       box-shadow: 0 8px 22px rgba(148, 113, 16, 0.4);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(148, 113, 16, 0.55);
     }
 
     .btn-submit:active {
-      transform: translateY(1px);
-      box-shadow: 0 4px 14px rgba(148, 113, 16, 0.3);
+      transform: translateY(0);
+      box-shadow: 0 6px 16px rgba(148, 113, 16, 0.35);
     }
 
     .message {
@@ -391,7 +473,7 @@
     <header class="site-header">
       <div class="header-top">
         <div class="logo-wrap">
-          <!-- Update src if your logo file name is different -->
+          <!-- Logo must be present in your repo as azcs-logo.jpg -->
           <img src="azcs-logo.jpg" alt="AZ Cleaning Supplies logo" />
           <div class="company-text">
             <h1>AZ CLEANING SUPPLIES</h1>
@@ -400,19 +482,38 @@
           </div>
         </div>
         <div class="header-badge">
-          Contractor & Facility Training · Live Demo
+          Inseco x AZ Cleaning Supplies · Live Demo
         </div>
       </div>
 
       <div class="header-bottom">
         <div class="event-title">
-          <h2>For Landscapers, Hardscapers & Facility Teams Who Are Done Fighting Failed Sealers</h2>
+          <p class="eyebrow">Paver & Concrete Sealing Training · Phoenix</p>
+          <h2>Stop Fighting Failed Paver Sealers.</h2>
           <p>
-            Half-day, hands-on training at AZ Cleaning Supplies showing you exactly how to strip, prep, and seal pavers
-            and concrete with <strong>Inseco Sealthane Wet Look</strong> and
+            Half-day, hands-on training at AZ Cleaning Supplies for
+            <strong>landscapers, hardscapers, power washing pros, and facility teams</strong> who want a proven
+            strip–prep–seal workflow using <strong>Inseco Sealthane Wet Look</strong> and
             <strong>PSR Paver Sealer Remover (gel &amp; spray)</strong> so jobs look better and last longer with fewer callbacks.
           </p>
+
+          <div class="audience-pills">
+            <span class="audience-pill">Landscapers</span>
+            <span class="audience-pill">Hardscape contractors</span>
+            <span class="audience-pill">Power washing / exterior cleaning</span>
+            <span class="audience-pill">Facility &amp; property managers</span>
+            <span class="audience-pill">Maintenance supervisors &amp; building engineers</span>
+          </div>
+
+          <button
+            type="button"
+            class="hero-cta"
+            onclick="document.getElementById('signup-form').scrollIntoView({ behavior: 'smooth' });"
+          >
+            Reserve My Seat + Free Kit
+          </button>
         </div>
+
         <div class="event-meta">
           <strong>January 10 · 9:00 AM – 1:00 PM</strong>
           <span>AZ Cleaning Supplies · Phoenix, AZ</span>
@@ -440,16 +541,16 @@
             rinsing, surface moisture, sanding, and cure times so you know not just how to seal, but when it’s safe to seal.
           </li>
           <li>
-            Positioning and pricing ideas for contractors and facility teams so sealing becomes a reliable, profitable
-            service instead of a headache.
+            Positioning and pricing ideas so sealing becomes a reliable, profitable service for contractors and a
+            predictable maintenance tool for facility teams.
           </li>
         </ul>
 
         <div class="offer-block">
           <strong>What You Get for Attending:</strong><br />
-          Everyone who signs up and attends the full training receives a
-          <strong>Sealthane Wet Look sealer kit</strong> to take back to the field, plus live demos with Inseco and AZ
-          Cleaning Supplies, dedicated Q&amp;A time, and lunch provided on-site.
+          Everyone who signs up and attends the full training receives a <strong>Sealthane Wet Look sealer kit</strong>
+          to take back to the field, plus live demos with Inseco and AZ Cleaning Supplies, dedicated Q&amp;A time, and
+          lunch provided on-site.
         </div>
 
         <section class="who-for">
@@ -469,9 +570,17 @@
               high-gloss, joint-stabilizing wet look finish that makes your installs pop and protects your reputation.
             </li>
             <li>
-              <strong>Facility and property managers</strong><br />
+              <strong>Power washing &amp; exterior cleaning companies</strong><br />
+              Who want to turn one-time cleaning jobs into longer-term sealing and resealing work using a proven system.
+            </li>
+            <li>
+              <strong>Facility &amp; property managers</strong><br />
               Who are responsible for walkways, plazas, pool decks, and entries and care about durability, appearance,
-              and safety – and want a system that works in the field, not just on paper.
+              and safety – and want chemistry that works in the field, not just on paper.
+            </li>
+            <li>
+              <strong>Maintenance supervisors &amp; building engineers</strong><br />
+              Who need practical, repeatable processes their crews can follow without guesswork.
             </li>
           </ul>
         </section>
@@ -486,8 +595,8 @@
             </li>
             <li>
               <strong>PSR Gel Paver Sealer Remover</strong> – a thick, biodegradable, low-odor gel stripper that removes
-              multiple layers of sealer and coatings without methylene chloride, N-methyl-pyrrolidone, or caustics.
-              Designed to penetrate and soften built-up films so they can be removed safely and efficiently.
+              multiple layers of sealer and coatings without methylene chloride, N-methyl-pyrrolidone, or caustics,
+              designed to penetrate and soften built-up films so they can be removed safely.
             </li>
             <li>
               <strong>PSR Spray Paver Sealer Remover</strong> – the same PSR chemistry in a sprayable formula for
@@ -501,8 +610,8 @@
       <section class="form-card">
         <h3>Reserve Your Seat</h3>
         <p class="form-subtext">
-          Seats are limited. Fill out the form to reserve your spot. All fields are required.
-          Landscapers, hardscapers, and facility teams are all welcome.
+          Seats are limited. Fill out the form to reserve your spot. All fields are required. Landscapers, hardscapers,
+          power washing pros, and facility teams are all welcome.
         </p>
 
         <form id="signup-form">
@@ -531,7 +640,7 @@
           />
 
           <button type="submit" class="btn-submit">
-            Reserve My Seat
+            Submit Registration
           </button>
           <div id="message" class="message"></div>
         </form>
@@ -551,7 +660,7 @@
   </div>
 
   <script>
-    // Replace with your actual Google Apps Script Web App URL (ending in /exec)
+    // Your live Google Apps Script Web App URL
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxO9eZHvc2WetwHoKUtnWkZn7fmW4CuesANCc0LKQrg0x9Xh8Iv8rk3KSv2qQXdDmxl/exec';
 
     const form = document.getElementById('signup-form');
